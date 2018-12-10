@@ -1,2 +1,2 @@
-# libbft-go
-libbft cgo version
+# libbyz-go
+libbyz cgo version
