@@ -1,6 +1,5 @@
 curdir=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 all:
-	@echo ${curdir}
 	@apt-get install -y automake autoconf; \
 	apt-get install -y gcc g++; \
 	apt-get install -y libgmp-dev; \
