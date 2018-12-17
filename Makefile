@@ -1,18 +1,20 @@
 curdir=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 all:
-	@sudo apt-get install -y automake autoconf; \
-	sudo apt-get install -y gcc g++; \
-	sudo apt-get install -y libgmp-dev; \
-	sudo apt-get install -y libtool; \
-	sudo apt-get install -y flex bison; \
-	sudo apt-get install -y make; \
+	@echo ${curdir}
+	@apt-get install -y automake autoconf; \
+	apt-get install -y gcc g++; \
+	apt-get install -y libgmp-dev; \
+	apt-get install -y libtool; \
+	apt-get install -y flex bison; \
+	apt-get install -y make; \
 	cd ${curdir}/bft/sfslite-1.2; \
 	autoreconf -i; \
 	sh -x setup.gnu -f -i -s; \
 	mkdir install; \
-	./configure --prefix=${curdir}/bft/sfslite-1.2/install; \
+	export SFSHOME=${curdir}/bft/sfslite-1.2; \
+	./configure --prefix=$${SFSHOME}/install; \
 	make CFLAGS="-Werror=strict-aliasing" CXXFLAGS="-fpermissive -DHAVE_GMP_CXX_OPS"; \
-	make install; \ 
+	make install; \
 	cd ${curdir}/bft; \
 	ln -s sfslite-1.2/install sfs; \
 	ln -s /usr/lib gmp; \
