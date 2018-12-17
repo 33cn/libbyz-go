@@ -4,12 +4,12 @@
 
 ## libbyz编译安装
 
-在Ubuntu 18.04， gcc-4.8.5的环境下测试通过。
+在Ubuntu 16.04， gcc-5.4.0的环境下测试通过。
 
 具体配置过程如下。
 
 ```shell
-sudo apt-get install -y automake1.10
+sudo apt-get install -y automake autoconf
 sudo apt-get install -y gcc g++
 sudo apt-get install -y libgmp-dev
 sudo apt-get install -y libtool
@@ -17,9 +17,10 @@ sudo apt-get install -y flex bison
 sudo apt-get install -y make
 
 cd bft/sfslite-1.2
+autoreconf -i
 sh -x setup.gnu -f -i -s
 mkdir install
-export SFSHOME=/workspace/bft/sfslite-1.2
+SFSHOME=./bft/sfslite-1.2
 ./configure --prefix=$SFSHOME/install
 make CFLAGS="-Werror=strict-aliasing" CXXFLAGS="-fpermissive -DHAVE_GMP_CXX_OPS"
 make install
