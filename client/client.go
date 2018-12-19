@@ -33,7 +33,7 @@ func ByzInitClient(configPath string, configPrivPath string) {
 
 // ByzRunClient : Alloc req and wait for reply from replica
 func ByzRunClient() {
-	readOnly := 0
+	var readOnly = 0
 	req := C.struct__Byz_buffer{}
 	rep := C.struct__Byz_buffer{}
 	C.Byz_alloc_request(&req, C.int(simpleSize))
@@ -47,7 +47,7 @@ func ByzRunClient() {
 	}
 
 	// invoke request
-	C.Byz_invoke(&req, &rep, C.ulong(readOnly))
+	C.Byz_invoke(&req, &rep, C.bool(readOnly))
 
 	// check reply
 	if !(((option == 2 || option == 0) && rep.size == 8) || (option == 1 && rep.size == C.int(simpleSize))) {

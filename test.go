@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"github.com/33cn/libbyz-go/replica"

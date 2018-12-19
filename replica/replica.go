@@ -26,7 +26,7 @@ func ByzInitReplica(configPath string, configPrivPath string) {
 
 	C.dump_handler()
 	var memSize = 205 * 8192
-	cMem := (*C.char)(C.malloc(C.ulong(memSize)))
+	cMem := (*C.char)(C.malloc(C.size_t(memSize)))
 	for i := 0; i < memSize; i++ {
 		*(*C.char)(unsafe.Pointer(uintptr(unsafe.Pointer(cMem)) + uintptr(i))) = C.char(0)
 	}
