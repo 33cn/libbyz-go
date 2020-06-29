@@ -1,14 +1,14 @@
 package replica
 
-// #cgo CFLAGS: -I../bft/gmp -I../bft/libbyz -I../bft/sfs/include/sfslite -O3 -fno-exceptions -DNDEBUG
-// #cgo LDFLAGS: -L../bft/gmp -L../bft/libbyz -L../bft/sfs/lib/sfslite -lbyz -lsfscrypt -lasync -lgmp -lstdc++
+// #cgo CFLAGS:  -I../bft/libbyz  -O3 -fno-exceptions -DNDEBUG
+// #cgo LDFLAGS:  -L../lib  -lbyz -lsfscrypt -lasync  -lgmp -lstdc++
 // #include<stdio.h>
 // #include<stdlib.h>
 // #include<string.h>
 // #include<signal.h>
 // #include<unistd.h>
 // #include<sys/param.h>
-// #include"libbyz.h"
+// #include "libbyz.h"
 // int exec_command_cgo(Byz_req *inb, Byz_rep *outb, Byz_buffer *non_det, int client, bool ro);
 // void dump_handler();
 // typedef int (*service)(Byz_req *inb, Byz_rep *outb, Byz_buffer *non_det, int client, bool ro);

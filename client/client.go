@@ -1,7 +1,7 @@
 package client
 
-// #cgo CFLAGS: -I../bft/gmp -I../bft/libbyz -I../bft/sfs/include/sfslite -O3 -fno-exceptions -DNDEBUG
-// #cgo LDFLAGS: -L../bft/gmp -L../bft/libbyz -L../bft/sfs/lib/sfslite -lbyz -lsfscrypt -lasync -lgmp -lstdc++
+// #cgo CFLAGS:  -I../bft/libbyz  -O3 -fno-exceptions -DNDEBUG
+// #cgo LDFLAGS:  -L../lib  -lbyz -lsfscrypt -lasync  -lgmp -lstdc++
 // #include<stdio.h>
 // #include<stdlib.h>
 // #include<string.h>
